@@ -25,13 +25,10 @@ void filter1(vector<vector<vector<int>>> &vec) {
 	size_t cols = vec.at(0).size();
 	if (!cols) exit(1);
 	size_t colors = vec.at(0).at(0).size();
-	if (!colors) exit(1);
-
-	make_rect(vec, 50, 200, 50, 60); 
-	make_rect(vec, 50, 200, 100, 110); 
-
+	if (!colors) exit(1); 
 	//Do the image filtering on every row and column in this image...
 	//Warning: I and J are actuall backwards, I hope you read this comment
+	int count = 0;
 	for (int i = 0; i < rows; i++) {
 		for (int j = 0; j < cols; j++) {
 			//r is the red value at the current spot, g is the green, b is the blue
@@ -110,7 +107,7 @@ void filter1(vector<vector<vector<int>>> &vec) {
 			//Example - Make the image more purpleish
 		
 
-		if (j < cols/2 && j > 0) {
+		if (j <= cols/2 && j > 0) {
 			int ij = (i + j) / 3.5;
 			int avg = (r + g + b) / 3;
 			vec.at(i).at(j).at(RED) = avg + 128*cos(ij / 40.0);
@@ -139,6 +136,13 @@ void filter1(vector<vector<vector<int>>> &vec) {
 			vec.at(i).at(j).at(BLUE) *= 1.8;
 		}
 	}
+	if (i > 1000 && j > 1840) {
+		vec.at(i - count).at(j).at(RED) = 0;
+		vec.at(i - count).at(j).at(GREEN) = 0;
+		vec.at(i - count).at(j).at(BLUE) = 0;
+		count++;
+	}
+		
 
 		/*
 			//Complex Example - Do sepia toning
@@ -149,7 +153,40 @@ void filter1(vector<vector<vector<int>>> &vec) {
 			vec[i][j][BLUE]  = r*0.272 + g*0.534 + b*0.131;
 			*/
 
-			//DEMO CODE END
+			//DEMO CODE END 
 		}
 	}
+
+		//#
+		make_rect(vec, 1000, 1070, 50, 55); 
+		make_rect(vec, 1000, 1070, 80, 85);
+		make_rect(vec, 1023, 1028, 30, 105);
+		make_rect(vec, 1046, 1051, 30, 105);
+		//L
+		make_rect(vec, 1000, 1070, 130, 135);
+		make_rect(vec, 1070, 1075, 130, 170);
+		//I
+		make_rect(vec, 1000, 1070, 200, 205);
+		make_rect(vec, 1000, 1005, 182, 222);
+		make_rect(vec, 1070, 1075, 182, 222);
+		//G
+		make_rect(vec, 1000, 1070, 235, 240);
+		make_rect(vec, 1000, 1005, 235, 275); 
+		make_rect(vec, 1070, 1075, 235, 275);
+		make_rect(vec, 1035, 1070, 270, 275);
+		make_rect(vec, 1035, 1040, 260, 275);
+		//H
+		make_rect(vec, 1000, 1075, 290, 295); 
+		make_rect(vec, 1035, 1040, 295, 330);
+		make_rect(vec, 1000, 1075, 330, 335);
+		//T	
+		make_rect(vec, 1005, 1075, 367, 373); 
+		make_rect(vec, 1000, 1005, 350, 390);
+		//S
+		make_rect(vec, 1000, 1035, 405, 410);
+		make_rect(vec, 1035, 1075, 440, 445);
+		make_rect(vec, 1000, 1005, 405, 445); 
+		make_rect(vec, 1035, 1040, 405, 445);
+		make_rect(vec, 1070, 1075, 405, 445);
+
 }
