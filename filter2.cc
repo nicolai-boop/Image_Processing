@@ -22,7 +22,7 @@ void filter2(vector<vector<vector<int>>> &vec) {
 			//How far are we from the center?
 			const double diag_length = hypot(rows/2.0,cols/2.0); //How many pixels is the diagonal from the center of the image to a corner?
 			double distance = hypot(i-(rows/2.0),j-(cols/2.0));
-			double brightness = 1 - 2*(distance/diag_length); //0 brightness at corners, 200% brightness in middle
+			double brightness = 1 - 0.8 * (distance/diag_length); //0 brightness at corners, 200% brightness in middle
 			//cout << "i: " << i << " j: " << j << " bright: " << brightness << endl;
 			//cout << "diag_length: " << diag_length << " distance: " << distance << endl;
 			for (int k = 0; k < colors; k++) {

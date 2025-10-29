@@ -9,7 +9,16 @@ const int RED = 0, GREEN = 1, BLUE = 2;
 void make_rect(vector<vector<vector<int>>> &vec, int x_min, int x_max, int y_min, int y_max) {
 	for (int i = y_min; i <= y_max; i++) {
 		for (int j = x_min; j <= x_max; j++) {
-			vec[i][j][RED] = 0;
+			vec[i][j][RED] = 20;
+			vec[i][j][GREEN] = 20;
+			vec[i][j][BLUE] = 20;
+		}
+	}
+}
+void make_amogus(vector<vector<vector<int>>> &vec, int x_min, int x_max, int y_min, int y_max) {
+	for (int i = y_min; i <= y_max; i++) {
+		for (int j = x_min; j <= x_max; j++) {
+			vec[i][j][RED] = 255;
 			vec[i][j][GREEN] = 0;
 			vec[i][j][BLUE] = 0;
 		}
@@ -176,5 +185,15 @@ void filter1(vector<vector<vector<int>>> &vec) {
 		make_rect(vec, 1000, 1005, 405, 445); 
 		make_rect(vec, 1035, 1040, 405, 445);
 		make_rect(vec, 1070, 1075, 405, 445);
-	
+
+		make_amogus(vec, 100, 150, 1820, 1825);
+		make_amogus(vec, 100, 150, 1850, 1855);
+		make_amogus(vec, 100, 105, 1820, 1850);
+		make_amogus(vec, 130, 135, 1820, 1850);
+		make_amogus(vec, 108, 113, 1810, 1820);
+		make_amogus(vec, 122, 127, 1810, 1820);
+		make_amogus(vec, 113, 127, 1810, 1813);
+		make_amogus(vec, 108, 111, 1840, 1850);
+		make_amogus(vec, 114, 118, 1840, 1850);
+		make_amogus(vec, 108, 118, 1840, 1843);
 }
