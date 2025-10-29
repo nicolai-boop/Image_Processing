@@ -113,14 +113,14 @@ void filter1(vector<vector<vector<int>>> &vec) {
 		if (j < cols/2 && j > 0) {
 			int ij = (i + j) / 3.5;
 			int avg = (r + g + b) / 3;
-			vec.at(i).at(j).at(RED) = avg + 128*cos(ij / 20.0);
+			vec.at(i).at(j).at(RED) = avg + 128*cos(ij / 40.0);
 			/*vec.at(i).at(j).at(GREEN) = avg + 128*cos(ij / 50.0);
 			vec.at(i).at(j).at(BLUE) = avg+ 128*cos(ij / 30.0);*/
 		}
-		else if (j > cols/2 && j > 0) {
+		else if (j >= cols/2 && j > 0) {
 			int ij = (i - j) / 3.5;
 			int avg = (r + g + b) / 3;
-			vec.at(i).at(j).at(RED) = avg + 100*cos(ij / 20.0);
+			vec.at(i).at(j).at(RED) = avg + 100*cos((ij+55) / 40.0);
 		}
 	if (r < 245) {
 		if (i < rows/3 && i > 0) { 
@@ -134,9 +134,9 @@ void filter1(vector<vector<vector<int>>> &vec) {
 			vec.at(i).at(j).at(BLUE) *= 1.2;
 		}
 		else {
-			vec.at(i).at(j).at(RED) *= 1.0;
-			vec.at(i).at(j).at(GREEN) *= 1.8;
-			vec.at(i).at(j).at(BLUE) *= 2.2;
+			vec.at(i).at(j).at(RED) *= 2.0;
+			vec.at(i).at(j).at(GREEN) *= 1.3;
+			vec.at(i).at(j).at(BLUE) *= 1.8;
 		}
 	}
 
