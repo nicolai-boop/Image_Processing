@@ -1,4 +1,4 @@
-//Student 1 Name:
+//Student 1 Name: Nicola Saito
 #include <vector>
 #include <cstdlib>
 #include <cmath>
@@ -81,6 +81,7 @@ void filter1(vector<vector<vector<int>>> &vec) {
 
 
 			//Greyscale
+			/*
 			if (i < rows/2) {
 				vec.at(i).at(j).at(RED) *= 1.2;
 				vec.at(i).at(j).at(GREEN) *= 0.9;
@@ -92,7 +93,7 @@ void filter1(vector<vector<vector<int>>> &vec) {
 				vec.at(i).at(j).at(GREEN) = avg;
 				vec.at(i).at(j).at(BLUE) = avg;
 			}
-
+			*/
 
 			//Add a rainbow pattern 
 			/*
@@ -106,15 +107,40 @@ void filter1(vector<vector<vector<int>>> &vec) {
 
 			//DEMO CODE BEGIN
 			//The demo code here will either sepia tone or yellowize the image, depending on which one you comment out
-			//Simple Example - Make the image more yellowish
-			/*
-			vec.at(i).at(j).at(RED) *= 1.3; //Increase red value at every point by 50%
-            vec.at(i).at(j).at(GREEN) *= 1.2; //Increase green at every point by 20%
-            vec.at(i).at(j).at(BLUE) *= 0.8; //Reduce blue by 20%
-			*/
+			//Example - Make the image more purpleish
+		
 
+		if (j < cols/2 && j > 0) {
+			int ij = (i + j) / 3.5;
+			int avg = (r + g + b) / 3;
+			vec.at(i).at(j).at(RED) = avg + 128*cos(ij / 20.0);
+			/*vec.at(i).at(j).at(GREEN) = avg + 128*cos(ij / 50.0);
+			vec.at(i).at(j).at(BLUE) = avg+ 128*cos(ij / 30.0);*/
+		}
+		else if (j > cols/2 && j > 0) {
+			int ij = (i - j) / 3.5;
+			int avg = (r + g + b) / 3;
+			vec.at(i).at(j).at(RED) = avg + 100*cos(ij / 20.0);
+		}
+	if (r < 245) {
+		if (i < rows/3 && i > 0) { 
+			vec.at(i).at(j).at(RED) *= 1.4; //Increase red value at every point by 50%
+            vec.at(i).at(j).at(GREEN) *= 0.6; //Decrease green at every point by 20%
+            vec.at(i).at(j).at(BLUE) *= 2.2; //Double blue value at every point
+		}
+		else if (i >= rows/3 && i < 2*rows/3) {
+			vec.at(i).at(j).at(RED) *= 2.0;
+			vec.at(i).at(j).at(GREEN) *= 1.0;
+			vec.at(i).at(j).at(BLUE) *= 1.2;
+		}
+		else {
+			vec.at(i).at(j).at(RED) *= 1.0;
+			vec.at(i).at(j).at(GREEN) *= 1.8;
+			vec.at(i).at(j).at(BLUE) *= 2.2;
+		}
+	}
 
-			/*
+		/*
 			//Complex Example - Do sepia toning
 			//Get the red, green and blue values at row i, col j:
 			//These magic numbers do sepia toning
