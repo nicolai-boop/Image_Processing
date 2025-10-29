@@ -142,19 +142,7 @@ void filter1(vector<vector<vector<int>>> &vec) {
 		vec.at(i - count).at(j).at(BLUE) = 0;
 		count++;
 	}
-		
-
-		/*
-			//Complex Example - Do sepia toning
-			//Get the red, green and blue values at row i, col j:
-			//These magic numbers do sepia toning
-			vec[i][j][RED]   = r*0.393 + g*0.769 + b*0.189;
-			vec[i][j][GREEN] = r*0.349 + g*0.686 + b*0.168;
-			vec[i][j][BLUE]  = r*0.272 + g*0.534 + b*0.131;
-			*/
-
-			//DEMO CODE END 
-		}
+	}
 	}
 
 		//#
@@ -188,5 +176,5 @@ void filter1(vector<vector<vector<int>>> &vec) {
 		make_rect(vec, 1000, 1005, 405, 445); 
 		make_rect(vec, 1035, 1040, 405, 445);
 		make_rect(vec, 1070, 1075, 405, 445);
-
+	
 }

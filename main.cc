@@ -1,7 +1,7 @@
 //==================================================================================
 //Write your names here, and explain what each student's code does
 //Student 1 Name: Nicola Saito
-//Student 1's Filter Description: Divide the Mountains into a Reddish, Purpleish, and light orange tone 
+//Student 1's Filter Description: Divide the Mountains into a Blueish Gradient with a reddish division within three sides of the screen. 
 //Student 2 Name: Piero Ugaz
 //Student 2's Filter Description: 
 //Student 3 Name: None
